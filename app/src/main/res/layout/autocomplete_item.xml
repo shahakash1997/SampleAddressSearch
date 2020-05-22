@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="com.sample.sampleaddresssearch.utils.Utility"/>
+        <variable
+            name="address"
+            type="com.sample.sampleaddresssearch.data.schema.Address" />
+
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_margin="5dp"
+        android:layout_marginBottom="10dp"
+        app:cardCornerRadius="2dp"
+        app:cardElevation="5dp"
+        android:foreground="?attr/selectableItemBackground"
+        app:cardBackgroundColor="#03A9F4"
+        android:layout_height="wrap_content">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:padding="10dp"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvAddress"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_width="wrap_content"
+            android:textSize="18sp"
+            android:textColor="#FFFFFF"
+            android:text="@{address.addressString}"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/tvCity"
+            android:textColor="#E0F7FA"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/tvAddress"
+            android:layout_width="wrap_content"
+            android:text="@{address.city}"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/tvLat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvCity"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:textColor="@color/greenText"
+            android:textStyle="bold"
+            android:text="@{Utility.getLatLong(address.latitude,address.longitude)}"/>
+
+    </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
